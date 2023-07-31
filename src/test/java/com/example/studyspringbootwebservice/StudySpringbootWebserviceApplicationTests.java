@@ -1,0 +1,13 @@
+package com.example.studyspringbootwebservice;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class StudySpringbootWebserviceApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}
