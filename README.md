@@ -2,9 +2,7 @@
 
 # 스프링 부트와 AWS로 혼자 구현하는 웹 서비스
 
-![image](https://github.com/joooonh/study-springboot-webservice/assets/116352772/7c6f4ab3-66e1-4290-ad4b-a0c54c3bdc76)
-
-<img src="https://github.com/joooonh/study-springboot-webservice/assets/116352772/7c6f4ab3-66e1-4290-ad4b-a0c54c3bdc76.png" width="500" height="600"/>
+<img src="https://github.com/joooonh/study-springboot-webservice/assets/116352772/7c6f4ab3-66e1-4290-ad4b-a0c54c3bdc76.png" width="500" height="550"/>
 <br/>
 <br/>
 
