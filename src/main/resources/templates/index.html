@@ -14,6 +14,26 @@
                 <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
             </div>
         </div>
+
+        <!-- 목록 출력 영역 -->
+        <table class="table table-horizontal table-bordered">
+            <thead class="thead-strong">
+            <tr>
+                <th>게시글번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>최종수정일</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            <tr th:each="post : ${posts}">
+                <td th:text="${post.id}">id</td>
+                <td th:text="${post.title}">title</td>
+                <td th:text="${post.author}">author</td>
+                <td th:text="${post.modifiedDate}">modifiedDate</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 
     <!-- footer 조각 -->
