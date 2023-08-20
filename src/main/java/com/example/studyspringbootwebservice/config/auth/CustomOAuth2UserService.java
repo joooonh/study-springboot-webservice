@@ -33,28 +33,21 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         OAuth2UserService<OAuth2UserRequest, OAuth2User> delegate = new DefaultOAuth2UserService();
         // 사용자 정보
         OAuth2User oAuth2User = delegate.loadUser(userRequest);
-        log.info("oAuth2User={}", oAuth2User);
-        log.info("oAuth2User의 attributes={}", oAuth2User.getAttributes());
 
         // 현재 로그인 진행 중인 OAuth 2.0 서비스를 구분하는 코드
         String registrationId = userRequest.getClientRegistration().getRegistrationId();
-        log.info("registrationId={}", registrationId);
 
         // OAuth 2.0 로그인 진행 시 키가 되는 필드값. 구글은 기본적으로 코드 지원(sub)
         String userNameAttributeName = userRequest.getClientRegistration().getProviderDetails().getUserInfoEndpoint().getUserNameAttributeName();
-        log.info("userNameAttributename={}", userNameAttributeName);
 
         // OAuth2UserService를 통해 가져온 OAuth2User의 attribute를 담을 클래스
         OAuthAttributes attributes = OAuthAttributes.of(registrationId, userNameAttributeName, oAuth2User.getAttributes());
-        log.info("attribute={}", attributes);
 
         // 조회한 OAuth2User가 있을 경우 update, 없을 경우 save
         User user = saveOrUpdate(attributes);
-        log.info("user={}", user.toString());
 
         // 세션에 사용자 정보를 저장하기 위한 Dto 클래스
         httpSession.setAttribute("user", new SessionUser(user));
-        log.info("httpSession.getAttribute={}", httpSession.getAttribute("user"));
 
         return new DefaultOAuth2User(
                 Collections.singleton(new SimpleGrantedAuthority(user.getRoleKey())),
