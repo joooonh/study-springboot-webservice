@@ -8,7 +8,8 @@
 
 - **개인 프로젝트 연습 (2023.07.31 ~)**
 - IntelliJ 2023.1.1
-- Java 17
 - Spring Boot 3.0.5
+- Spring Security 6.0.2
+- Java 17
 - JUnit5
 - Thymeleaf
