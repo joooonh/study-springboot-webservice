@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.web.SecurityFilterChain;
 
 @RequiredArgsConstructor
@@ -32,8 +33,14 @@ public class SecurityConfig {
                     .logout().logoutSuccessUrl("/")
                 .and()
                     .oauth2Login()                              // oauth2.0 로그인 설정
+                        .defaultSuccessUrl("/", true)
                         .userInfoEndpoint()                     // 로그인 성공한 사용자 정보를 가져올 때의 설정
                         .userService(customOAuth2UserService);  // 로그인 성공 시 수행할 service 등록
         return http.build();
+    }
+
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().requestMatchers("/favicon.ico", "/resources/**", "/error");
     }
 }

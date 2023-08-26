@@ -26,7 +26,9 @@ dependencies {
     runtimeOnly 'com.h2database:h2'
     // 타임리프 추가
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    // spring security oauth2 client
+    // 스프링 시큐리티
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    // 스프링 시큐리티 oauth2
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
     // spring session jdbc
     implementation 'org.springframework.session:spring-session-jdbc'
